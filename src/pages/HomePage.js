@@ -1,32 +1,32 @@
 import { useState, useEffect } from "react";
-import Stats from "../components/Stats";
 
 const HomePage = () => {
   let [pokemon, setPokemon] = useState(null);
-  // let [pokemonMoves, setPokemonMoves] = useState(pokemon.moves);
+  let [input, setInput] = useState("");
 
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/raikou")
+  const searchButtonHandler = async () => {
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.stats);
+        console.log(data.sprites.other["official-artwork"].front_default);
         setPokemon(data);
       });
-  }, []);
+  };
 
   return (
-    <div className="flex">
+    <>
+      <div>
+        <input onChange={(event) => setInput(event.target.value)} className="bg-red-200" />
+        <button onClick={searchButtonHandler}>Search</button>
+      </div>
       {pokemon && (
         <div>
           <section className="flex flex-col text-center justify-center px-4 border border-red-200">
             <h1 className="font-bold text-3xl">{pokemon.name}</h1>
-            <img className="h-40 w-40 flex mx-auto justify-center" src={pokemon.sprites.front_default} />
+            <img className="h-40 w-40 flex mx-auto justify-center" src={pokemon.sprites.other["official-artwork"].front_default} />
+            <h2 className="font-bold">Type</h2>
             {pokemon.types.map((type, index) => (
-              <div>
-                <h2 className="font-bold">Type</h2>
-                <h2>{type.type.name}</h2>
-                {/* <img src={type.type.url} /> */}
-              </div>
+              <h2>{type.type.name}</h2>
             ))}
           </section>
           <div className="flex justify-center pt-3">
@@ -37,8 +37,7 @@ const HomePage = () => {
               <h2 className="w-1/3">{move.move.name}</h2>
             ))}
           </section>
-          {/* <Stats data={pokemon} /> */}
-          <section className="flex flex-wrap flex-col items-center">
+          <section className="flex flex-wrap flex-col items-center pt-3">
             <h1 className="flex text-center font-bold text-2xl">Stats</h1>
             {pokemon.stats.map((stat) => (
               <div className="flex flex-row justify-between w-1/2">
@@ -49,7 +48,7 @@ const HomePage = () => {
           </section>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
