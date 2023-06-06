@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HomeMessage from "../components/HomeMessage";
 import Nav from "../components/Nav";
 
 const HomePage = () => {
@@ -16,20 +17,8 @@ const HomePage = () => {
 
   return (
     <>
-      <Nav />
-      <div>
-        <input onChange={(event) => setInput(event.target.value)} className="bg-red-200" />
-        <button onClick={searchButtonHandler}>Search</button>
-      </div>
-      {!pokemon && (
-        <div className="flex justify-center items-center h-screen">
-          <section className="text-center">
-            <h1 className="text-6xl">Look up your favorite Pokémon!</h1>
-            <p className="pt-4">Search and find out more about your favorite Pokémon!</p>
-            <p>Build your team with the Pokémon that you love!</p>
-          </section>
-        </div>
-      )}
+      <Nav changeHandler={(event) => setInput(event.target.value)} clickHandler={searchButtonHandler} />
+      {!pokemon && <HomeMessage />}
       {pokemon && (
         <div>
           <section className="flex flex-col text-center justify-center px-4 border border-red-200">
