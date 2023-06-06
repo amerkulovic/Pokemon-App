@@ -22,7 +22,7 @@ const HomePage = () => {
       {!pokemon && <HomeMessage />}
       {pokemon && (
         <div className="flex">
-          <section className="flex flex-col text-center justify-center px-4 w-2/5 border-2 border-blue-400 rounded-lg mx-2">
+          <section className="flex flex-col text-center justify-center px-4 w-2/5 border-4 border-blue-400 bg-blue-300 rounded-lg mx-2 mb-3">
             <h1 className="font-bold text-3xl">{pokemon.name}</h1>
             <img className="h-80 w-80 flex mx-auto justify-center" src={pokemon.sprites.other["official-artwork"].front_default} />
 
@@ -36,27 +36,31 @@ const HomePage = () => {
                 ))}
               </div>
             </section>
-           <Sprite image1={pokemon.sprites.front_default} image2={pokemon.sprites.back_default} />
+            <Sprite image1={pokemon.sprites.front_default} image2={pokemon.sprites.back_default} />
           </section>
-          {/* <section className="flex flex-wrap flex-col items-center pt-3 w-3/5 border-2 border-blue-400 rounded-lg mx-2">
-            <h1 className="flex text-center font-bold text-2xl">Stats</h1>
-            {pokemon.stats.map((stat) => (
-              <div key={stat.stat.name} className="flex flex-row justify-between w-1/2">
-                <h2 className="font-bold">{stat.stat.name}</h2>
-                <h2>{stat.base_stat}</h2>
+          <div className="flex flex-col w-3/5">
+            <section className="flex flex-wrap flex-col items-center pt-3 border-4 border-blue-400 rounded-lg mx-2">
+              <h1 className="flex text-center font-bold text-2xl">Stats</h1>
+              {pokemon.stats.map((stat) => (
+                <div key={stat.stat.name} className="flex flex-row justify-between w-1/2">
+                  <h2 className="font-bold">{stat.stat.name}</h2>
+                  <h2>{stat.base_stat}</h2>
+                </div>
+              ))}
+            </section>
+            <div className="border-4 border-blue-400 rounded-lg mt-3 mx-2">
+              <div className="flex justify-center pt-3">
+                <h1 className="font-bold">Move List</h1>
               </div>
-            ))}
-          </section> */}
-          {/* <div className="flex justify-center pt-3">
-            <h1 className="font-bold">Move List</h1>
+              <section className="flex flex-wrap justify-center text-center py-3 h-96 overflow-scroll">
+                {pokemon.moves.map((move, index) => (
+                  <h2 key={move.move.name} className="w-1/3">
+                    {move.move.name}
+                  </h2>
+                ))}
+              </section>
+            </div>
           </div>
-          <section className="flex flex-wrap justify-center text-center pt-3">
-            {pokemon.moves.map((move, index) => (
-              <h2 key={move.move.name} className="w-1/3">
-                {move.move.name}
-              </h2>
-            ))}
-          </section> */}
         </div>
       )}
     </>
