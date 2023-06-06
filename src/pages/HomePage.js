@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HomeMessage from "../components/HomeMessage";
 import Nav from "../components/Nav";
+import Sprite from "../components/Sprite";
 
 const HomePage = () => {
   let [pokemon, setPokemon] = useState(null);
@@ -35,13 +36,7 @@ const HomePage = () => {
                 ))}
               </div>
             </section>
-            <section>
-              <h1 className="font-bold text-lg mt-5">Sprites</h1>
-              <div className="flex flex-row justify-center">
-                <img className="h-40 w-40" src={pokemon.sprites.front_default} />
-                <img className="h-40 w-40" src={pokemon.sprites.back_default} />
-              </div>
-            </section>
+           <Sprite image1={pokemon.sprites.front_default} image2={pokemon.sprites.back_default} />
           </section>
           {/* <section className="flex flex-wrap flex-col items-center pt-3 w-3/5 border-2 border-blue-400 rounded-lg mx-2">
             <h1 className="flex text-center font-bold text-2xl">Stats</h1>
