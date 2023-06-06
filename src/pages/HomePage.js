@@ -48,15 +48,15 @@ const HomePage = () => {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-blue-500 bg-blue-100 rounded-lg mx-2 mb-3");
         } else if (data.types[0].type.name === "fighting") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-orange-500 bg-orange-200 rounded-lg mx-2 mb-3");
-        }else if (data.types[0].type.name === "ground") {
+        } else if (data.types[0].type.name === "ground") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-orange-400 bg-orange-100 rounded-lg mx-2 mb-3");
-        }else if (data.types[0].type.name === "flying") {
+        } else if (data.types[0].type.name === "flying") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-purple-200 bg-purple-100 rounded-lg mx-2 mb-3");
-        }else if (data.types[0].type.name === "rock") {
+        } else if (data.types[0].type.name === "rock") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-orange-500 bg-orange-300 rounded-lg mx-2 mb-3");
-        }else if (data.types[0].type.name === "ghost") {
+        } else if (data.types[0].type.name === "ghost") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-purple-500 bg-purple-300 rounded-lg mx-2 mb-3");
-        }else if (data.types[0].type.name === "steel") {
+        } else if (data.types[0].type.name === "steel") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-slate-500 bg-slate-300 rounded-lg mx-2 mb-3");
         }
       });
