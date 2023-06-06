@@ -6,6 +6,7 @@ import Sprite from "../components/Sprite";
 const HomePage = () => {
   let [pokemon, setPokemon] = useState(null);
   let [input, setInput] = useState("");
+  let [pageStyling, setPageStyling] = useState("");
 
   const searchButtonHandler = async () => {
     await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
@@ -18,12 +19,12 @@ const HomePage = () => {
 
   return (
     <>
-      <Nav changeHandler={(event) => setInput(event.target.value)} clickHandler={searchButtonHandler} />
+      <Nav changeHandler={(event) => setInput(event.target.value.toLowerCase())} clickHandler={searchButtonHandler} />
       {!pokemon && <HomeMessage />}
       {pokemon && (
         <div className="flex">
           <section className="flex flex-col text-center justify-center px-4 w-2/5 border-4 border-blue-400 bg-blue-300 rounded-lg mx-2 mb-3">
-            <h1 className="font-bold text-3xl">{pokemon.name}</h1>
+            <h1 className="font-bold text-3xl mt-3">{pokemon.name}</h1>
             <img className="h-80 w-80 flex mx-auto justify-center" src={pokemon.sprites.other["official-artwork"].front_default} />
 
             <section>
@@ -48,7 +49,7 @@ const HomePage = () => {
                 </div>
               ))}
             </section>
-            <div className="border-4 border-blue-400 rounded-lg mt-3 mx-2">
+            <div className="border-4 border-blue-400 rounded-lg mt-8 mx-2">
               <div className="flex justify-center pt-3">
                 <h1 className="font-bold">Move List</h1>
               </div>
