@@ -1,6 +1,6 @@
 const Nav = (props) => {
   return (
-    <div className="bg-blue-400 py-4 flex justify-between items-center">
+    <div className="bg-blue-400 py-4 flex justify-between items-center mb-5">
       <h1 className="text-4xl text-yellow-500 font-bold mx-2">PokeApp</h1>
       <div className="mr-2">
         <input className="mx-2 py-3 rounded-md" onChange={props.changeHandler} />
