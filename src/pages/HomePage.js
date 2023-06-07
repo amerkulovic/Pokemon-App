@@ -72,6 +72,8 @@ const HomePage = () => {
           setMoveStyling("border-4 border-orange-500 rounded-lg mt-6 mx-2");
         } else if (data.types[0].type.name === "ground") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-orange-400 bg-orange-100 rounded-lg mx-2 mb-3");
+          setStatStyling("flex flex-wrap flex-col items-center py-3 border-4 border-orange-400 rounded-lg mx-2")
+          setMoveStyling("border-4 border-orange-400 rounded-lg mt-6 mx-2")
         } else if (data.types[0].type.name === "flying") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-purple-200 bg-purple-100 rounded-lg mx-2 mb-3");
           setStatStyling("flex flex-wrap flex-col items-center py-3 border-4 border-purple-200 rounded-lg mx-2");
@@ -82,8 +84,8 @@ const HomePage = () => {
           setMoveStyling("border-4 border-orange-500 rounded-lg mt-6 mx-2");
         } else if (data.types[0].type.name === "ghost") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-purple-500 bg-purple-300 rounded-lg mx-2 mb-3");
-          setStatStyling("flex flex-wrap flex-col items-center py-3 border-4 border-pruple-400 rounded-lg mx-2");
-          setMoveStyling("border-4 border-pruple-400 rounded-lg mt-6 mx-2");
+          setStatStyling("flex flex-wrap flex-col items-center py-3 border-4 border-purple-500 rounded-lg mx-2");
+          setMoveStyling("border-4 border-purple-500 rounded-lg mt-6 mx-2");
         } else if (data.types[0].type.name === "steel") {
           setPageStyling("flex flex-col text-center justify-center px-4 w-2/5 border-4 border-4 border-slate-500 bg-slate-300 rounded-lg mx-2 mb-3");
           setStatStyling("flex flex-wrap flex-col items-center py-3 border-4 border-slate-500 rounded-lg mx-2");
